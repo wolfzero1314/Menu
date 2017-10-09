@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./Content/commen.css">
+        <script src="./Scripts/jquery.js"></script>
+        <script src="./Scripts/menu.js"></script>
+        <style>
+        #menuNotice {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            background-color: #ececec;
+        }
+
+            #menuNotice ul {
+                margin-top: 10px;
+            }
+
+        #menuButtonArea {
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+        #btnDeleteMenu {
+            background-color: #ff0000;
+        }
+
+        .txtButton {
+            width: 120px;
+        }
+
+        #buttonDetails {
+            margin-left: 20px;
+        }
+
+        select.dllButtonDetails {
+            padding: 5px;
+        }
+
+        select.dllButtonDetails option {
+            padding: 5px;
+        }
+
+        .txtButtonDetails {
+            width: 200px;
+        }
+
+        .txtToken {
+            width: 80%;
+        }
+
+        .submitArea {
+            clear: both;
+        }
+
+        .leftArea {
+            width: 450px;
+        }
+
+        #addConditionalArea {
+            padding: 0px 10px 30px 20px;
+            margin-right: 10px;
+            float: left;
+            border-right: 1px solid #d9d9d9;
+        }
+
+            #addConditionalArea input {
+                width: 100px;
+            }
+
+            #addConditionalArea .conditionalTip {
+                display: block;
+                clear: both;
+            }
+
+            #addConditionalArea h3, #reveiveJSON h3 {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+        #reveiveJSON {
+            margin: 0px 0px 40px 0px;
+            width: 330px;
+            float: left;
+        }
+
+            #reveiveJSON textarea {
+                width: 96%;
+                height: 350px;
+                margin-top: 5px;
+            }
+
+        #menuEditor #submitJsonMenu.control-btn {
+            width: 280px;
+        }
+
+        .menu-state {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 6px;
+            background-color: #e7f5ff;
+        }
+
+        #menuState {
+            font-weight: bold;
+            color: #42961e;
+        }
+
+        #menuTable th {
+            text-align: center;
+            line-height: 42px;
+        }
+
+
+        .currentMenuItem {
+            background-color: #ecf9ff;
+            color: #246ea2;
+            font-weight: bold;
+        }
+
+        .hoverMenuItem {
+            /*background-color: #c7ffaf;*/
+            color: #099f5e;
+            font-weight: bold;
+        }
+
+        #menuTable .control-input {
+            width: 140px;
+            margin: 5px 3px;
+            border-width: 2px;
+            border-color: #ebebeb;
+        }
+
+            #menuTable .control-input.currentMenuInput {
+                border-color: #246ea2;
+            }
+
+        #menuTable .menuRowTip {
+            padding: 2px;
+        }
+    </style>
+    </head>
+    <body>
+
+    <div class="float-left menu-list">
+                <table id="menuTable">
+                    <thead>
+                        <tr>
+                            <th style="width:102px;"></th>
+                            <th class="currentMenuItem">第一列</th>
+                            <th class="">第二列</th>
+                            <th class="">第三列</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr id="rootMenuRow">
+                                <td class="menuRowTip currentMenuItem">
+                                    二级菜单No.1
+                                </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[0].key" id="menu_button0_sub_button0_key">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[0].type" id="menu_button0_sub_button0_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[0].url" id="menu_button0_sub_button0_url">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[0].appid" id="menu_button0_sub_button0_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[0].pagepath" id="menu_button0_sub_button0_pagepath">
+                                        <input type="text" class="control-input txtButton currentMenuInput" name="menu.button[0].sub_button[0].name" id="menu_button0_sub_button0_name" data-i="0" data-j="0">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[0].key" id="menu_button1_sub_button0_key">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[0].type" id="menu_button1_sub_button0_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[0].url" id="menu_button1_sub_button0_url">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[0].appid" id="menu_button1_sub_button0_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[0].pagepath" id="menu_button1_sub_button0_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[1].sub_button[0].name" id="menu_button1_sub_button0_name" data-i="0" data-j="1">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[0].key" id="menu_button2_sub_button0_key">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[0].type" id="menu_button2_sub_button0_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[0].url" id="menu_button2_sub_button0_url">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[0].appid" id="menu_button2_sub_button0_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[0].pagepath" id="menu_button2_sub_button0_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[2].sub_button[0].name" id="menu_button2_sub_button0_name" data-i="0" data-j="2">
+                                    </td>
+                            </tr>
+                            <tr id="rootMenuRow">
+                                <td class="menuRowTip">
+                                    二级菜单No.2
+                                </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[1].key" id="menu_button0_sub_button1_key">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[1].type" id="menu_button0_sub_button1_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[1].url" id="menu_button0_sub_button1_url">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[1].appid" id="menu_button0_sub_button1_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[1].pagepath" id="menu_button0_sub_button1_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[0].sub_button[1].name" id="menu_button0_sub_button1_name" data-i="1" data-j="0">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[1].key" id="menu_button1_sub_button1_key">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[1].type" id="menu_button1_sub_button1_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[1].url" id="menu_button1_sub_button1_url">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[1].appid" id="menu_button1_sub_button1_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[1].pagepath" id="menu_button1_sub_button1_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[1].sub_button[1].name" id="menu_button1_sub_button1_name" data-i="1" data-j="1">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[1].key" id="menu_button2_sub_button1_key">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[1].type" id="menu_button2_sub_button1_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[1].url" id="menu_button2_sub_button1_url">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[1].appid" id="menu_button2_sub_button1_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[1].pagepath" id="menu_button2_sub_button1_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[2].sub_button[1].name" id="menu_button2_sub_button1_name" data-i="1" data-j="2">
+                                    </td>
+                            </tr>
+                            <tr id="rootMenuRow">
+                                <td class="menuRowTip">
+                                    二级菜单No.3
+                                </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[2].key" id="menu_button0_sub_button2_key">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[2].type" id="menu_button0_sub_button2_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[2].url" id="menu_button0_sub_button2_url">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[2].appid" id="menu_button0_sub_button2_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[2].pagepath" id="menu_button0_sub_button2_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[0].sub_button[2].name" id="menu_button0_sub_button2_name" data-i="2" data-j="0">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[2].key" id="menu_button1_sub_button2_key">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[2].type" id="menu_button1_sub_button2_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[2].url" id="menu_button1_sub_button2_url">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[2].appid" id="menu_button1_sub_button2_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[2].pagepath" id="menu_button1_sub_button2_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[1].sub_button[2].name" id="menu_button1_sub_button2_name" data-i="2" data-j="1">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[2].key" id="menu_button2_sub_button2_key">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[2].type" id="menu_button2_sub_button2_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[2].url" id="menu_button2_sub_button2_url">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[2].appid" id="menu_button2_sub_button2_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[2].pagepath" id="menu_button2_sub_button2_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[2].sub_button[2].name" id="menu_button2_sub_button2_name" data-i="2" data-j="2">
+                                    </td>
+                            </tr>
+                            <tr id="rootMenuRow">
+                                <td class="menuRowTip">
+                                    二级菜单No.4
+                                </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[3].key" id="menu_button0_sub_button3_key">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[3].type" id="menu_button0_sub_button3_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[3].url" id="menu_button0_sub_button3_url">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[3].appid" id="menu_button0_sub_button3_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[3].pagepath" id="menu_button0_sub_button3_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[0].sub_button[3].name" id="menu_button0_sub_button3_name" data-i="3" data-j="0">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[3].key" id="menu_button1_sub_button3_key">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[3].type" id="menu_button1_sub_button3_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[3].url" id="menu_button1_sub_button3_url">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[3].appid" id="menu_button1_sub_button3_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[3].pagepath" id="menu_button1_sub_button3_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[1].sub_button[3].name" id="menu_button1_sub_button3_name" data-i="3" data-j="1">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[3].key" id="menu_button2_sub_button3_key">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[3].type" id="menu_button2_sub_button3_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[3].url" id="menu_button2_sub_button3_url">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[3].appid" id="menu_button2_sub_button3_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[3].pagepath" id="menu_button2_sub_button3_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[2].sub_button[3].name" id="menu_button2_sub_button3_name" data-i="3" data-j="2">
+                                    </td>
+                            </tr>
+                            <tr id="rootMenuRow">
+                                <td class="menuRowTip">
+                                    二级菜单No.5
+                                </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[4].key" id="menu_button0_sub_button4_key">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[4].type" id="menu_button0_sub_button4_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[4].url" id="menu_button0_sub_button4_url">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[4].appid" id="menu_button0_sub_button4_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[0].sub_button[4].pagepath" id="menu_button0_sub_button4_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[0].sub_button[4].name" id="menu_button0_sub_button4_name" data-i="4" data-j="0">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[4].key" id="menu_button1_sub_button4_key">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[4].type" id="menu_button1_sub_button4_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[4].url" id="menu_button1_sub_button4_url">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[4].appid" id="menu_button1_sub_button4_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[1].sub_button[4].pagepath" id="menu_button1_sub_button4_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[1].sub_button[4].name" id="menu_button1_sub_button4_name" data-i="4" data-j="1">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[4].key" id="menu_button2_sub_button4_key">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[4].type" id="menu_button2_sub_button4_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[4].url" id="menu_button2_sub_button4_url">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[4].appid" id="menu_button2_sub_button4_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[2].sub_button[4].pagepath" id="menu_button2_sub_button4_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[2].sub_button[4].name" id="menu_button2_sub_button4_name" data-i="4" data-j="2">
+                                    </td>
+                            </tr>
+                            <tr id="subMenuRow_5">
+                                <td class="menuRowTip">
+                                    一级菜单按钮
+                                </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[0].key" id="menu_button0_key">
+                                        <input type="hidden" class="control-input" name="menu.button[0].type" id="menu_button0_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[0].url" id="menu_button0_url">
+                                        <input type="hidden" class="control-input" name="menu.button[0].appid" id="menu_button0_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[0].pagepath" id="menu_button0_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[0].name" id="menu_button0_name" data-i="5" data-j="0" data-root="0">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[1].key" id="menu_button1_key">
+                                        <input type="hidden" class="control-input" name="menu.button[1].type" id="menu_button1_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[1].url" id="menu_button1_url">
+                                        <input type="hidden" class="control-input" name="menu.button[1].appid" id="menu_button1_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[1].pagepath" id="menu_button1_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[1].name" id="menu_button1_name" data-i="5" data-j="1" data-root="1">
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="control-input" name="menu.button[2].key" id="menu_button2_key">
+                                        <input type="hidden" class="control-input" name="menu.button[2].type" id="menu_button2_type" value="click">
+                                        <input type="hidden" class="control-input" name="menu.button[2].url" id="menu_button2_url">
+                                        <input type="hidden" class="control-input" name="menu.button[2].appid" id="menu_button2_appid">
+                                        <input type="hidden" class="control-input" name="menu.button[2].pagepath" id="menu_button2_pagepath">
+                                        <input type="text" class="control-input txtButton" name="menu.button[2].name" id="menu_button2_name" data-i="5" data-j="2" data-root="2">
+                                    </td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="float-left" id="buttonDetails" style="display: block;">
+                <h3>按钮其他参数</h3>
+                <p>Name：<input type="text" id="buttonDetails_name" class="control-input txtButton" disabled="disabled"></p>
+                <p>
+                    Type：
+                    <select id="buttonDetails_type" class="dllButtonDetails">
+                        <option value="click" selected="selected">点击事件（传回服务器）</option>
+                        <option value="view">访问网页（直接跳转）</option>
+                        <option value="miniprogram">小程序（直接跳转）</option>
+                        <option value="location_select">弹出地理位置选择器</option>
+                        <option value="pic_photo_or_album">弹出拍照或者相册发图</option>
+                        <option value="pic_sysphoto">弹出系统拍照发图</option>
+                        <option value="pic_weixin">弹出微信相册发图器</option>
+                        <option value="scancode_push">扫码推事件</option>
+                        <option value="scancode_waitmsg">扫码推事件且弹出“消息接收中”提示框</option>
+                    </select>
+                </p>
+                <p id="buttonDetails_key_area">
+                    Key：<input id="buttonDetails_key" class="control-input txtButtonDetails" type="text">
+                </p>
+                <p id="buttonDetails_url_area" style="overflow: hidden; display: none;">
+                    Url：<input id="buttonDetails_url" class="control-input txtButtonDetails" type="text">
+                </p>
+                <p id="buttonDetails_miniprogram_appid_area" style="overflow: hidden; display: none;">
+                    小程序AppId：<input id="buttonDetails_url" class="control-input txtButtonDetails" type="text">
+                </p>
+                <p id="buttonDetails_miniprogram_pagepath_area" style="overflow: hidden; display: none;">
+                    小程序PagePath：<input id="buttonDetails_url" class="control-input txtButtonDetails" type="text">
+                </p>
+                <p id="rootButtonNotice" style="display: none;">
+                    如果还有下级菜单请忽略上述Type和Key、Url等参数。<br>
+                </p>
+            </div>
+            <script>
+    $(function () {
+        senparc.menu.init();
+    });
+</script>
+    </body>
+</html>
